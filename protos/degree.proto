@@ -1,15 +1,24 @@
 syntax = "proto3";
 
+package degree;
+
 service Degrees {
-  rpc Find (DegreeId) returns (Degree) {}
+  rpc Find (DegreeRequest) returns (DegreeResponse);
+  rpc CreateDegree (CreateDegreeRequest) returns (DegreeResponse);
 }
 
-message DegreeId {
-  uint32 id = 1;
+message DegreeRequest {
+  int32 id = 1;
 }
 
-message Degree {
-  uint32 id = 1;
+message DegreeResponse {
+  int32 degreeId = 1;
+  string title = 2;
+  string major = 3;
+}
+
+message CreateDegreeRequest {
+  int32 degreeId = 1;
   string title = 2;
   string major = 3;
 }

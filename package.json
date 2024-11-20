@@ -5,9 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start-degree": "nodemon ./degree/main.js",
-    "start-processor": "nodemon ./process/main.js",
-    "start-main": "nodemon ./main/main.js",
+    "start-degree": "nodemon ./degree-service/main.js",
+    "start-processor": "nodemon ./process-service/server.js",
+    "start-main": "nodemon ./main-service/server.js",
     "start": "concurrently \"npm run start-degree\" \"npm run start-processor\" \"npm run start-main\" "
   },
   "author": "",
@@ -15,9 +15,11 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.12.2",
     "@grpc/proto-loader": "^0.7.13",
-    "express": "^4.21.1"
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.2"
   },
-  "devDependencies": {
+  "devDependencies": { 
     "@types/express": "^5.0.0",
     "concurrently": "^9.1.0",
     "nodemon": "^3.1.7"
